@@ -1,0 +1,6 @@
+interface:
+  display_name: "A股复盘/展望"
+  short_description: "实时新闻盘面驱动的A股复盘、展望和股票池跟踪"
+  default_prompt: "Use $a-share-glan-style-briefing to write today’s A-share review or outlook with leader-stock tracking."
+policy:
+  allow_implicit_invocation: true
