@@ -65,29 +65,50 @@
 
 ### 前置要求
 
-- [Gemini CLI](https://github.com/google-gemini/gemini-cli) 或其他支持 Skills 的 AI Agent
 - Python 3.8+
-- `requests` 库
+- `requests` 库（`pip install requests`）
+- 任意一个支持的 AI 编程工具（见下方兼容列表）
 
-### 安装步骤
+### 方式一：Gemini CLI 用户（最简单）
 
 ```bash
-# 1. 安装 Python 依赖
-pip install requests
-
-# 2. 克隆到你的项目 .agents/skills/ 目录
 cd /你的项目路径/.agents/skills/
 git clone https://github.com/wangdaokeaiduo/glan-a-share-briefing-skill.git a-share-glan-style-briefing
-
-# 3. (可选) 将睡眠进化引擎拆分为独立 skill
-cp -r a-share-glan-style-briefing/glan-sleep-optimizer ./glan-sleep-optimizer
-
-# 4. 完成！Gemini CLI 会自动发现这两个 skill
+pip install requests
+# 完成！Gemini CLI 会自动发现 skill
 ```
+
+### 方式二：其他平台用户（一键适配）
+
+```bash
+# 1. 克隆到项目中任意位置
+git clone https://github.com/wangdaokeaiduo/glan-a-share-briefing-skill.git
+cd glan-a-share-briefing-skill
+
+# 2. 运行多平台适配脚本
+python3 setup_platforms.py --all        # 生成所有平台配置
+python3 setup_platforms.py cursor trae  # 只生成指定平台
+python3 setup_platforms.py --list       # 查看支持的平台
+```
+
+### 🌐 多平台兼容列表
+
+| 平台 | 类型 | 配置路径 | 适配方式 |
+| --- | --- | --- | --- |
+| **Gemini CLI** (Google) | 国际 | `.agents/skills/` | ✅ 原生 SKILL.md 格式 |
+| **Claude Code** (Anthropic) | 国际 | `CLAUDE.md` + `.claude/commands/` | 自动生成 |
+| **Cursor** | 国际 | `.cursor/rules/*.mdc` | 自动生成 |
+| **Windsurf** (Codeium) | 国际 | `.windsurfrules` | 自动生成 |
+| **GitHub Copilot** | 国际 | `.github/copilot-instructions.md` | 自动生成 |
+| **Cline** | 国际 | `.clinerules` | 自动生成 |
+| **Aider** | 国际 | `CONVENTIONS.md` | 自动生成 |
+| **CodeBuddy** (腾讯) | 国内 | `.codebuddy/rules/` + `.codebuddy/skills/` | 自动生成 |
+| **Trae** (字节/豆包) | 国内 | `.trae/rules/` | 自动生成 |
+| **通义灵码** (阿里) | 国内 | `.lingma/rules/` | 自动生成 |
 
 ### 验证安装
 
-启动 Gemini CLI，输入以下任意指令：
+启动你的 AI 编程工具，输入以下任意指令：
 
 ```
 午盘复盘 格兰
