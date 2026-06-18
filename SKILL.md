@@ -115,6 +115,7 @@ python {SKILL_DIR}/scripts/fetch_market_snapshot.py [股票代码1,股票代码2
 3. **Fetch current A-share facts with Full-Pool Radar & Technical Analysis.**
    - You MUST use `references/core-stock-pool.md` as a radar checklist. Do not just look at today's hot news; explicitly check the price action of the core stocks across all major sectors (AI hardware, PCB, Semiconductor Equipment, New Energy, etc.). Even if the day's main line is Coal, you must note if PCB (e.g. 胜宏科技, 生益电子) is crashing.
    - **Extreme Deep Tracing Directive**: If Midstream PCB (沪电, 胜宏, 生益电子) or Optics (中际, 新易盛) is surging, you MUST explicitly trace up to check the Extreme Upstream Materials & Equipment: e.g., Resin (东材科技), Copper Foil (德福科技), CCL (生益科技), and CPO Packaging Equipment (罗博特科). Use this to judge if the rally is a superficial hype or a full-chain resonance.
+   - **【强制】板块纵深挖掘扫描（Market Deep-Mining Scan）**: 当脚本返回的「实时板块热点」中出现 PCB、CCL、覆铜板、MLCC、被动元器件、先进封装、固态电池 等方向涨幅靠前时，**必须加载 `references/market-digging-map.md`**，沿着映射树做纵深扩散：检查该板块的上游材料（电子布、树脂、铜箔、硅微粉、低介电材料）和配套部件（MLCC、电感、玻璃基板、锆材料）是否同步异动。将发现的挖掘方向输出到报告的「🔍 市场正在挖掘的方向」模块中。
    - **Technical Analysis (Support/Resistance)**: When scanning a sector, explicitly identify its technical position on the chart (K-line). Is it falling to a major support level (e.g. 20-day/60-day MA, previous consolidation zone) holding support? Is it hitting a major resistance level? This is critical for generating rebound/breakout trading advice.
    - **真实还原盘中分时走势**: 当点评核心个股时，绝对不能只写一个死板的最终涨跌幅（如"收涨+4%"）。你必须确认它在盘中的走势轨迹：是"一字涨停"、"冲高回落"、"探底回升"、还是"尾盘抢筹"？（例如：如果早盘曾涨过+8%，收盘回落到+4%，必须写明"盘中冲高回落"，并分析这说明了什么样的抛压或资金分歧）。只有真实还原分时走势，才能准确判断真实的筹码交换情况。
    - A股指数表现：上证、深成指、创业板、科创、北证 if available.
@@ -272,8 +273,16 @@ Use this exact order and structure unless the user asks otherwise:
 10. **## 硬科技拆链**：
    - 附带大表格 `| 小链条 | 催化质量 | 收入/订单验证 | 核心票盘口 | 分层 | 反证 |`
 
+10b. **## 🔍 市场正在挖掘的方向（纵深扩散雷达）**：
+    - **这是格兰独有的"纵深嗅觉"模块——从当天涨幅靠前的板块出发，沿产业链纵深挖掘资金正在探索的极细分方向。**
+    - 必须加载 `references/market-digging-map.md`，根据当天涨幅板块找到对应的映射树。
+    - 先用 2-3 段文本推演：今天哪些板块涨幅靠前？资金从主板块（如PCB、CCL、先进封装）往下挖到了哪些细分材料/部件？这些细分方向的"挖掘深度"到什么级别了（🔴概念期 / 🟡订单期 / 🟢业绩期）？
+    - 附带表格 `| 涨幅板块（母线） | 市场正在挖掘的细分方向 | 挖掘逻辑 | 核心个股 | 当日表现 | 挖掘深度评级 | 可介入性 | 注意事项/反证 |`
+    - **注意：只列"今天实际有资金在挖掘迹象"的方向，不要凭想象列一堆概念。判断标准是：该细分方向当天有个股异动（涨幅>3%或有异常放量），或有明确催化（研报/新闻/涨价）。**
+    - 每个细分方向至少给出 2-3 只核心个股，并标注其挖掘逻辑（如："从PCB成品涨→上游铜箔供需紧张→德福科技放量"）。
+
 11. **## 龙头观察**：
-   - 附带表格 `| 方向 | 核心观察股 | 上午/今日表现 | 盘口含义 | 下一步确认点 |`
+    - 附带表格 `| 方向 | 核心观察股 | 上午/今日表现 | 盘口含义 | 下一步确认点 |`
 
 12. **## 股票池雷达**：
     - 必须对板块进行分类（如：核心主线、补涨/副线、防守/边缘）。
@@ -348,5 +357,6 @@ Use this exact order and structure unless the user asks otherwise:
 - `references/evolution-loop.md`: self-evaluation, falsification review, and judgment-log update rules.
 - `references/us-ai-chain-mapping.md`: US AI chain → A-share mapping, overnight US market template, mapping strength grades.
 - `references/risk-radar.md`: risk scanning framework, thresholds for crowdedness/concentration/national team/news risks, risk radar output template.
+- `references/market-digging-map.md`: 板块纵深挖掘映射知识库，从涨幅板块（PCB/CCL/MLCC/固态电池等）到细分材料/部件方向的完整映射树、核心个股池和挖掘深度评级标准（🔴概念期/🟡订单期/🟢业绩期）。
 - `references/html-template.md`: HTML output template, CSS styles, content filling rules, section mapping, and auto-open instructions.
 - `references/codex-exemplar-2026-06-18.html`: **[范本级参考]** Codex生成的盘前展望报告范本。催化剂深度拆解模块（独立四层闭环：核心事实→A股映射→盘口验证→反证风险）、四道门审核机制（收入占比→订单绑定→客户认证→产能释放）、审计思维优先于乐观思维等写法均为范本级标准。每次撰写报告前可参考此范本对标质量。

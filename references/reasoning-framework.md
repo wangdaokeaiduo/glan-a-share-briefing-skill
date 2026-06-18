@@ -113,6 +113,33 @@ Use this mapping logic to translate news into specific Upstream/Midstream/Downst
 - **Overseas chip restrictions** -> urgent domestic substitution -> semiconductor equipment/materials/EDA **(Upstream)**.
 - **Geopolitical risk/Oil spike** -> energy security -> coal/oil/gas **(Upstream)** + renewable power/grid equipment **(Downstream)**.
 - **Fed hawkish/dollar/yields up** -> valuation pressure on growth -> rotation into high dividend/defensive sectors (e.g. Upstream Coal/Metals, Midstream Utilities).
+
+## 板块纵深挖掘逻辑 (Sector Deep-Mining Logic)
+
+当一个板块涨幅靠前时，格兰不能只看成品厂的表现，必须沿着产业链纵深挖掘市场正在发掘的极细分方向。这是发现"第二波"和"第三波"机会的核心方法论。
+
+### 核心推演路径
+
+1. **成品厂先涨 → 材料/部件商补涨 → 设备/工艺商跟涨**
+   - 例：PCB成品（沪电、胜宏）涨 → 上游CCL（生益科技）→ 更上游树脂（东材科技）、铜箔（德福科技）、电子布（宏和科技）
+   - 例：MLCC（风华高科）涨 → 上游钛酸钡（国瓷材料）→ 配套电感（顺络电子）、软磁（铂科新材）
+
+2. **横向扩散逻辑**：当一条纵向链涨完后，资金会横向寻找"同一层级、不同材料"的标的
+   - 例：铜箔涨完 → 同为PCB上游的电子布、树脂、低介电填料开始被挖掘
+   - 例：MLCC涨完 → 同为被动元器件的电感、薄膜电容、钽电容开始补涨
+
+3. **挖掘深度三阶段判断**（参见 market-digging-map.md 的评级标准）：
+   - 🔴 概念期：无订单、无收入，纯题材 → 快进快出
+   - 🟡 订单期：有送样/小批量，收入占比<10% → 观察介入
+   - 🟢 业绩期：规模收入可见，季报验证 → 中线配置
+
+### 反证检查
+
+对每个"市场正在挖掘的方向"，必须同步检查：
+- 该细分方向的龙头是否有**澄清公告**（如"占比低"、"未形成收入"）
+- 该方向是否纯粹是**游资一日游**（判断标准：当天换手率极高但次日即大幅回落）
+- 该方向的**上涨是否有产业催化支撑**（如涨价新闻、研报覆盖、订单公告），还是纯粹跟风
+
 ## Technical Analysis & Timing (技术面与择时逻辑)
 
 Combine fundamental thesis with technical chart positions to provide actionable entry/exit timing:
