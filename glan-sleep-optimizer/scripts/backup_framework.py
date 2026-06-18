@@ -9,8 +9,8 @@ def backup_file(target_file):
         print(f"Error: {target_file} does not exist.")
         return
 
-    # Define backups directory relative to the skill directory
-    skill_dir = "/Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/glan-sleep-optimizer"
+    # Automatically detect skill directory (parent of scripts/)
+    skill_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     backup_dir = os.path.join(skill_dir, "backups")
     os.makedirs(backup_dir, exist_ok=True)
 

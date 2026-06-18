@@ -23,7 +23,8 @@ Treat the natural language instructions of an agent as its trainable parameters.
 ### 2. Reality Check & Reflection (核对与反思)
 For each falsified thesis found:
 1. Identify the exact date the prediction was made and the target date it was predicting.
-2. **[MANDATORY]** Use the `run_command` tool to run `python /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/scripts/fetch_market_snapshot.py` or use other search tools to fetch the *actual* historical market data for the target date.
+2. **[MANDATORY]** Use the `run_command` tool to run `python {BRIEFING_SKILL_DIR}/scripts/fetch_market_snapshot.py` or use other search tools to fetch the *actual* historical market data for the target date.
+> **{BRIEFING_SKILL_DIR}** refers to the `a-share-glan-style-briefing` skill directory. If installed as a subdirectory of this repo, it's the parent directory of `glan-sleep-optimizer/`. If installed as a sibling skill, it's `../a-share-glan-style-briefing/`.
 3. Compare the prediction (e.g., "Washout, expect rebound tomorrow") with the reality (e.g., "Market crashed further").
 4. Formulate an answer: **Why did the existing `reasoning-framework.md` lead to this mistake?** What edge case or new market regime was missed?
 
@@ -31,7 +32,7 @@ For each falsified thesis found:
 Draft a concrete, actionable rule that would prevent this specific mistake in the future.
 - The rule must be specific (e.g., "If turnover drops below 1.5T while breaking the 5-day MA, do not classify as a washout").
 - It must not break existing good logic.
-- Target destination: The **"Evolutionary Patches (自我进化补丁库)"** section at the bottom of `/Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/references/reasoning-framework.md`.
+- Target destination: The **"Evolutionary Patches (自我进化补丁库)"** section at the bottom of `{BRIEFING_SKILL_DIR}/references/reasoning-framework.md`.
 
 ### 4. Validation Gate (人工验证门 - Human-in-the-loop)
 **Do NOT directly edit the `reasoning-framework.md` file.**
@@ -64,6 +65,7 @@ Present this artifact to the user and ask for their approval.
 ### 5. Commit (写入基因库)
 **Only AFTER the user explicitly approves** the `proposed_skill_edits.md`, you must:
 1. **[MANDATORY] Backup the file**: Run the backup script to save the current state:
-   `python3 /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/glan-sleep-optimizer/scripts/backup_framework.py /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/references/reasoning-framework.md`
+   `python3 {SLEEP_SKILL_DIR}/scripts/backup_framework.py {BRIEFING_SKILL_DIR}/references/reasoning-framework.md`
+   > **{SLEEP_SKILL_DIR}** = this `glan-sleep-optimizer` skill directory.
 2. **Apply Edit**: Use the `replace_file_content` tool to append the new rule into the `Evolutionary Patches (自我进化补丁库)` section of the `reasoning-framework.md` file.
 3. **Clean Log**: Clear the corresponding error entry from the `A股每日新闻与复盘台账.md` to indicate it has been digested.

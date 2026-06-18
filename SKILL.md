@@ -46,8 +46,9 @@ If the user does not specify, default to the mode that fits the current market t
 
 **你必须执行以下脚本，否则视为严重违规：**
 ```bash
-python /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/scripts/fetch_market_snapshot.py [股票代码1,股票代码2...]
+python {SKILL_DIR}/scripts/fetch_market_snapshot.py [股票代码1,股票代码2...]
 ```
+> **{SKILL_DIR}** 指本 SKILL.md 所在的目录绝对路径。Agent 应自动检测（例如 Gemini CLI 中，SKILL.md 的文件路径已在上下文中给出，取其父目录即可）。
 - 如果不传代码参数，脚本默认获取核心指数（上证、深成、创业板）及部分核心龙头数据。
 - 脚本会直接输出包含最新价、涨跌幅、开盘价的 Markdown 表格。**你必须根据脚本输出在终端中的真实硬数据来撰写复盘。**
 
@@ -93,12 +94,12 @@ python /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-shar
 
 2. **[MANDATORY] Fetch Real-Time A-Share Snapshot via Script.**
    You **MUST** use the `run_command` tool to execute:
-   `python /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/scripts/fetch_market_snapshot.py`
+   `python {SKILL_DIR}/scripts/fetch_market_snapshot.py`
    Read the terminal output. **This script now outputs 盘面涨跌幅情况 (Market Breadth) and 实时板块热点 (Top 10 Sectors) alongside the Core Quotes.** Only the data from this script output is considered real. Never hallucinate stock prices. If you need to check specific stocks not in the default list, run the script again with their codes.
 
 3. **[MANDATORY] Fetch 7x24 Real-Time News via Script & Search the Web for News and Rumors (主动获取国内外新闻与小作文).**
    - **First**, you **MUST** run the news API script to get objective, real-time domestic and international news:
-     `python3 /Users/wangdao/Documents/重要文档/www/touzibiao/.agents/skills/a-share-glan-style-briefing/scripts/fetch_news.py`
+     `python3 {SKILL_DIR}/scripts/fetch_news.py`
    - **Second**, you **MUST** use the `search_web` tool or other available browsing tools to query today's financial news, foreign macro news, and domestic A-share rumors (小作文). Do not rely solely on the user's prompt or your pre-trained memory. Search specifically for "[Today's Date] A股 小作文", "[Today's Date] 宏观新闻", or any specific events mentioned by the user.
 
 3. **Fetch overnight US & Asian market data (隔夜美股与亚太日韩市场).**
